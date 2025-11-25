@@ -12,8 +12,19 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Load CLIP model and processor once
-model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
-processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+print("=" * 60)
+print("Loading CLIP model and processor...")
+print("This may take a few minutes on first run (~605MB download)")
+print("=" * 60)
+try:
+    model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+    processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+    print("✓ CLIP model loaded successfully!")
+except Exception as e:
+    print(f"✗ Error loading CLIP model: {e}")
+    print("The server will start but image verification will fail.")
+    model = None
+    processor = None
 
 PINATA_API_KEY = "ad3bf23d5d93e34563de"
 PINATA_SECRET_API_KEY ="955dd619fe3b9ef554af4b1aaa775d2a30e5702ee9f9188b3e50948ef5787da2" 
@@ -47,6 +58,10 @@ def pin_json_metadata(metadata):
 @app.route("/upload_and_verify", methods=["POST"])
 def upload_and_verify():
     try:
+        # Check if CLIP model is loaded
+        if model is None or processor is None:
+            return jsonify({"error": "CLIP model not loaded. Please restart the server."}), 503
+        
         # Require image, description, and location form data
         if 'image' not in request.files or 'description' not in request.form or 'location' not in request.form:
             return jsonify({"error": "Missing image or description or location"}), 400
@@ -97,5 +112,21 @@ def upload_and_verify():
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500
 
+@app.route("/health", methods=["GET"])
+def health_check():
+    """Health check endpoint"""
+    return jsonify({
+        "status": "ok",
+        "model_loaded": model is not None and processor is not None
+    })
+
 if __name__ == "__main__":
+    print("\n" + "=" * 60)
+    print("🚀 Flask Backend Server Starting")
+    print("=" * 60)
+    print(f"📍 Server URL: http://localhost:5001")
+    print(f"🔗 Health Check: http://localhost:5001/health")
+    print(f"📤 Upload Endpoint: http://localhost:5001/upload_and_verify")
+    print(f"🤖 CLIP Model: {'✓ Loaded' if model else '✗ Not Loaded'}")
+    print("=" * 60 + "\n")
     app.run(port=5001, debug=True)

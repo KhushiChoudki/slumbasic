@@ -1,0 +1,58 @@
+Build a complete, polished static webpage (Replit project with index.html, styles.css, script.js, and an assets/ folder with placeholder images) inspired by the attached design. Improve the visual design — make it modern, high-contrast, tactile and lively while keeping the original content structure (hero logo, navbar, “What are we doing?”, prototype cards, about section, contact/footer). Requirements:
+
+Tech stack: plain HTML + CSS + vanilla JS. Use Tailwind CSS via CDN for utility classes and add a small custom styles.css for unique effects. Include Google Fonts: Anton (or similar condensed headline) for the big logo text and Inter for body copy.
+
+Hero / Logo:
+
+Large, vertically-staggered “PATH” headline with condensed heavy font (Anton) and a small rotated “NEXT” tag overlapping the P. Add strong multi-layered shadows (soft offset blur + dark inner shadow) to create a textured 3D look.
+
+Place a slim navbar above with Home / About / Prototype / Contact left aligned and a subtle dark-mode toggle on the right.
+
+Add subtle background gradient (very pale desaturated blue → off-white) with a faint noise overlay and a slow parallax for depth.
+
+Layout & spacing:
+
+Max width content centered, comfortable gutters, larger vertical rhythm. Use a two-column layout for the “What are we doing?” block (image left, text right) and a three-column grid for prototype cards. On mobile stack vertically.
+
+Prototype cards:
+
+Rounded 2xl image cards with glass/frosted overlay at the bottom containing title and a pill “find out more” CTA. Add hover lift (translateY -6px) and a soft drop shadow plus subtle scale on hover.
+
+Use CSS clip-path or image masks to give slightly organic rounded corners and make each image feel unique.
+
+Typography & color:
+
+Headings: bold, tactile, tracked slightly tight; Body: Inter, 16px base. Use CSS variables for palette:
+--bg: #f3f6f7; --muted: #9aa0a6; --accent: #ff6b9a; --dark: #111213; --glass: rgba(255,255,255,0.7)
+
+Use accent color for CTAs and subtle gradients on buttons.
+
+About & footer:
+
+About section two-column (text left, rounded square image/diagram right). Add a subtle card with inner shadow to the diagram.
+
+Footer: minimalist contact info, social icons, accessible contrast. Add keyboard-focus styles for all links and buttons.
+
+Microinteractions & animations:
+
+Use small, tasteful motion: fade-in on scroll (use a compact IntersectionObserver implementation), hover transitions for buttons and cards, and a soft parallax background on hero.
+
+Accessibility & performance:
+
+All images must have alt attributes. Ensure good contrast for body copy. Use loading="lazy" on below-the-fold images. Keep the CSS small and comment major sections.
+
+Deliverables in the project:
+
+index.html — full HTML with semantic structure and ARIA where appropriate.
+
+styles.css — custom styles (variables, shadows, image masks) and a small section overriding Tailwind utilities where needed.
+
+script.js — small JS for mobile nav toggle, dark-mode toggle (persist in localStorage), and scroll animations.
+
+assets/ — three placeholder images for prototype cards plus one diagram image (use placeholders with proper filenames).
+
+Add inline comments in code explaining key style/behavior blocks.
+
+Extra polish: add a small “Download prototype” or “Try prototype” pill CTA in the prototype section and a floating small help button in the bottom-right.
+
+Output a complete Replit-ready project tree and the full contents of each file (index.html, styles.css, script.js) so I can paste them directly.
