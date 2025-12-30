@@ -33,14 +33,14 @@ export default function ProjectDetails() {
       queryClient.invalidateQueries({ queryKey: ["/api/reports"] });
       toast({
         title: "Success!",
-        description: "Project deleted successfully",
+        description: "Prototype deleted successfully",
       });
       navigate("/projects");
     },
     onError: () => {
       toast({
         title: "Error",
-        description: "Failed to delete project",
+        description: "Failed to delete prototype",
         variant: "destructive",
       });
     },
@@ -51,7 +51,7 @@ export default function ProjectDetails() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent" />
-          <p className="mt-4 text-muted-foreground">Loading project...</p>
+          <p className="mt-4 text-muted-foreground">Loading prototype...</p>
         </div>
       </div>
     );
@@ -62,9 +62,9 @@ export default function ProjectDetails() {
       <div className="min-h-screen flex items-center justify-center">
         <Card className="p-8 text-center">
           <AlertCircle className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-          <p className="text-xl text-muted-foreground">Project not found</p>
+          <p className="text-xl text-muted-foreground">Prototype not found</p>
           <Button onClick={() => navigate("/projects")} className="mt-4">
-            Back to Projects
+            Back to Prototype
           </Button>
         </Card>
       </div>
@@ -81,7 +81,7 @@ export default function ProjectDetails() {
           data-testid="button-back"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
-          Back to Projects
+          Back to Prototype
         </Button>
 
         <Card className="mb-8">
@@ -110,14 +110,14 @@ export default function ProjectDetails() {
               <Button
                 variant="destructive"
                 onClick={() => {
-                  if (confirm("Are you sure you want to delete this project?")) {
+                  if (confirm("Are you sure you want to delete this prototype?")) {
                     deleteMutation.mutate();
                   }
                 }}
                 disabled={deleteMutation.isPending}
                 data-testid="button-delete"
               >
-                {deleteMutation.isPending ? "Deleting..." : "Delete Project"}
+                {deleteMutation.isPending ? "Deleting..." : "Delete Prototype"}
               </Button>
             </div>
           </CardHeader>
@@ -143,7 +143,7 @@ export default function ProjectDetails() {
           <CardContent>
             {!reports || reports.length === 0 ? (
               <p className="text-center text-muted-foreground py-8">
-                No reports for this project yet
+                No reports for this prototype yet
               </p>
             ) : (
               <div className="space-y-4">

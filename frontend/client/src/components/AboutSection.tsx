@@ -61,7 +61,7 @@ export default function AboutSection() {
                 }}
                 data-testid="button-see-projects"
               >
-                see our projects →
+                see our prototype →
               </Button>
               <Button
                 variant="outline"

@@ -57,7 +57,7 @@ export default function PrototypeSection() {
             }}
             data-testid="button-download-prototype"
           >
-            View all projects →
+            View all prototype →
           </Button>
         </div>
 

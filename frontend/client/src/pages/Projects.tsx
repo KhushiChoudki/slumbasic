@@ -18,7 +18,7 @@ export default function Projects() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent" />
-          <p className="mt-4 text-muted-foreground">Loading projects...</p>
+          <p className="mt-4 text-muted-foreground">Loading prototype...</p>
         </div>
       </div>
     );
@@ -30,16 +30,16 @@ export default function Projects() {
         <div className="flex flex-wrap items-center justify-between gap-4 mb-12">
           <div>
             <h1 className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-2" data-testid="text-projects-title">
-              Road Planning Projects
+              Road Planning Prototype
             </h1>
             <p className="text-lg text-muted-foreground">
-              Explore community infrastructure projects
+              Explore community infrastructure prototype
             </p>
           </div>
           <Link href="/projects/new">
             <Button size="lg" className="shadow-lg" data-testid="button-new-project">
               <Plus className="h-5 w-5 mr-2" />
-              New Project
+              New Prototype
             </Button>
           </Link>
         </div>
@@ -47,10 +47,10 @@ export default function Projects() {
         {!projects || projects.length === 0 ? (
           <Card className="p-12 text-center">
             <CardContent>
-              <p className="text-xl text-muted-foreground mb-4">No projects yet</p>
+              <p className="text-xl text-muted-foreground mb-4">No prototype yet</p>
               <Link href="/projects/new">
                 <Button data-testid="button-create-first">
-                  Create your first project
+                  Create your first prototype
                 </Button>
               </Link>
             </CardContent>

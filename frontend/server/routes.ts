@@ -5,13 +5,13 @@ import { insertProjectSchema, insertReportSchema } from "@shared/schema";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Projects routes
+  // Prototype routes
   app.get("/api/projects", async (_req, res) => {
     try {
       const projects = await storage.getAllProjects();
       res.json(projects);
     } catch (error) {
-      res.status(500).json({ error: "Failed to fetch projects" });
+      res.status(500).json({ error: "Failed to fetch prototype" });
     }
   });
 
@@ -19,11 +19,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const project = await storage.getProject(req.params.id);
       if (!project) {
-        return res.status(404).json({ error: "Project not found" });
+        return res.status(404).json({ error: "Prototype not found" });
       }
       res.json(project);
     } catch (error) {
-      res.status(500).json({ error: "Failed to fetch project" });
+      res.status(500).json({ error: "Failed to fetch prototype" });
     }
   });
 
@@ -36,7 +36,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (error instanceof z.ZodError) {
         return res.status(400).json({ error: error.errors });
       }
-      res.status(500).json({ error: "Failed to create project" });
+      res.status(500).json({ error: "Failed to create prototype" });
     }
   });
 
@@ -48,11 +48,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       const project = await storage.updateProjectStatus(req.params.id, status);
       if (!project) {
-        return res.status(404).json({ error: "Project not found" });
+        return res.status(404).json({ error: "Prototype not found" });
       }
       res.json(project);
     } catch (error) {
-      res.status(500).json({ error: "Failed to update project" });
+      res.status(500).json({ error: "Failed to update prototype" });
     }
   });
 
@@ -60,11 +60,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const deleted = await storage.deleteProject(req.params.id);
       if (!deleted) {
-        return res.status(404).json({ error: "Project not found" });
+        return res.status(404).json({ error: "Prototype not found" });
       }
       res.status(204).send();
     } catch (error) {
-      res.status(500).json({ error: "Failed to delete project" });
+      res.status(500).json({ error: "Failed to delete prototype" });
     }
   });
 

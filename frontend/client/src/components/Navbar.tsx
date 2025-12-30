@@ -84,7 +84,7 @@ export default function Navbar() {
                   size="sm"
                   data-testid="link-projects"
                 >
-                  Projects
+                  Prototype
                 </Button>
               </Link>
               <Button
@@ -149,7 +149,7 @@ export default function Navbar() {
                 }}
                 data-testid="link-projects-mobile"
               >
-                Projects
+                Prototype
               </Button>
             </Link>
             <Button

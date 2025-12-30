@@ -47,14 +47,14 @@ export default function NewProject() {
       queryClient.invalidateQueries({ queryKey: ["/api/projects"] });
       toast({
         title: "Success!",
-        description: "Project created successfully",
+        description: "Prototype created successfully",
       });
       navigate("/projects");
     },
     onError: () => {
       toast({
         title: "Error",
-        description: "Failed to create project",
+        description: "Failed to create prototype",
         variant: "destructive",
       });
     },
@@ -81,14 +81,14 @@ export default function NewProject() {
           data-testid="button-back"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
-          Back to Projects
+          Back to Prototype
         </Button>
 
         <Card>
           <CardHeader>
-            <CardTitle className="text-3xl font-display">Create New Project</CardTitle>
+            <CardTitle className="text-3xl font-display">Create New Prototype</CardTitle>
             <CardDescription>
-              Start a new road planning project for your community
+              Start a new road planning prototype for your community
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -99,7 +99,7 @@ export default function NewProject() {
                   name="title"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Project Title</FormLabel>
+                      <FormLabel>Prototype Title</FormLabel>
                       <FormControl>
                         <Input 
                           placeholder="e.g., Dharavi Road Network" 
@@ -138,14 +138,14 @@ export default function NewProject() {
                       <FormLabel>Description</FormLabel>
                       <FormControl>
                         <Textarea 
-                          placeholder="Describe your road planning project..."
+                          placeholder="Describe your road planning prototype..."
                           rows={5}
                           {...field}
                           data-testid="input-description"
                         />
                       </FormControl>
                       <FormDescription>
-                        Provide details about the project goals and scope
+                        Provide details about the prototype goals and scope
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
@@ -206,7 +206,7 @@ export default function NewProject() {
                     className="flex-1"
                     data-testid="button-create"
                   >
-                    {createMutation.isPending ? "Creating..." : "Create Project"}
+                    {createMutation.isPending ? "Creating..." : "Create Prototype"}
                   </Button>
                   <Button
                     type="button"

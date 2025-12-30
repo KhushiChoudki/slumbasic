@@ -9,7 +9,7 @@ export interface IStorage {
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
   
-  // Projects
+  // Prototype
   getAllProjects(): Promise<Project[]>;
   getProject(id: string): Promise<Project | undefined>;
   createProject(project: InsertProject): Promise<Project>;
@@ -50,18 +50,7 @@ export class MemStorage implements IStorage {
       createdAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
     };
     
-    const project2: Project = {
-      id: randomUUID(),
-      title: "Cape Town Settlement",
-      location: "Cape Town, South Africa",
-      description: "Infrastructure planning for informal settlements to create safer road networks.",
-      imageUrl: null,
-      status: "completed",
-      createdAt: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000),
-    };
-    
     this.projects.set(project1.id, project1);
-    this.projects.set(project2.id, project2);
     
     const report1: Report = {
       id: randomUUID(),
@@ -94,7 +83,7 @@ export class MemStorage implements IStorage {
     return user;
   }
   
-  // Projects
+  // Prototype
   async getAllProjects(): Promise<Project[]> {
     return Array.from(this.projects.values()).sort((a, b) => 
       b.createdAt.getTime() - a.createdAt.getTime()

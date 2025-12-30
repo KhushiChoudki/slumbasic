@@ -55,7 +55,7 @@ export default function WhatWeDoSection() {
 
           <div className="space-y-6">
             <p className="text-lg leading-relaxed text-foreground" data-testid="text-description-1">
-              We are building a platform that helps design better communities using satellite images and smart technology. Residents in areas like Dharavi, Mumbai and Case Town, or upload their own images to see suggested road layouts. Residents can explore these suggestions to help create road plans based on this new information, making the process smoother for their community drivers, and contractors to use directly.
+              We are building a platform that helps design better communities using satellite images and smart technology. Residents in areas like Dharavi, Mumbai can upload their own images to see suggested road layouts. Residents can explore these suggestions to help create road plans based on this new information, making the process smoother for their community drivers, and contractors to use directly.
             </p>
 
             <p className="text-lg leading-relaxed text-muted-foreground" data-testid="text-description-2">

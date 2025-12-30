@@ -21,11 +21,12 @@ export default function Footer() {
             <div className="space-y-2 text-background/90">
               <p data-testid="text-phone">
                 <span className="font-medium">Phone:</span><br />
-                +1 (555) 123-4567
+                +91 123456789
               </p>
               <p data-testid="text-email">
                 <span className="font-medium">Email:</span><br />
-                hello@pathproject.com
+                khushichoudki.is23@rvce.edu.in<br />
+                dishaa.is24@rvce.edu.in
               </p>
             </div>
           </div>
