@@ -70,7 +70,7 @@ export default function PrototypeSection() {
           >
             <PrototypeCard
               image={aerialImage}
-              title="Check for uploads"
+              title="Submit Complaints"
               testId="card-check-uploads"
             />
           </div>
